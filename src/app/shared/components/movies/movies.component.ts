@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { markDirty } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-movies',
@@ -10,16 +11,20 @@ export class MoviesComponent implements OnInit {
   text: Array<any>;
   array: Array<any>;
   constructor() {
-    
-   }
+
+  }
+
+
+
+  ngOnInit() {
+ 
+  }
 
   
 
-  ngOnInit() {
-    this.text = [0,10,555,47588].map( num => 
-      num.toString().padStart(10, '0')) 
-console.log(this.text)
-    }
+
+
+
 
 
 }
