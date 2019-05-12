@@ -6,22 +6,25 @@ import {SharedModule} from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    CoreModule,
-    SharedModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        CoreModule,
+        SharedModule,
+        CommonModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+
 // https://github.com/Ismaestro/angular7-example-app/blob/master/src/app/app.module.ts
