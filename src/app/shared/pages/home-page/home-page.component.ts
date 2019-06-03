@@ -1,24 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/index';
-import {MovieService} from '../../../modules/movies/shared/movie.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-home-page',
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.sass']
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
 
-    // movies$: Observable<any[]>;
-    public movies$;
+  constructor() { }
 
-    constructor(private movieService: MovieService) {
-    }
-
-    ngOnInit() {
-        this.movies$ = this.movieService.getMovies().subscribe((res: any[]) => {
-            console.log('res', res);
-        });
-    }
+  ngOnInit() {
+  }
 
 }
