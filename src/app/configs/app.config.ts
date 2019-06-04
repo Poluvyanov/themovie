@@ -8,6 +8,7 @@ export const AppConfig: any = {
     error404: '404'
   },
   serverUrl: 'https://api.themoviedb.org/3/movie',
-  apiKey: 'ef2532cf610dd88592daa5a4c08b66c7'
+  apiKey: 'ef2532cf610dd88592daa5a4c08b66c7',
+  link: 'api_key=ef2532cf610dd88592daa5a4c08b66c7&language=en-US&page=1'
 
 };

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {MovieService} from '../../../modules/shared/movie.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  movies: any;
+
+  constructor(private movieService: MovieService) {
+  }
 
   ngOnInit() {
+    this.movieService.getMovies().subscribe(data => {
+      this.movies = data.results;
+    });
   }
 
 }
