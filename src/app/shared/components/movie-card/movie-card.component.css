@@ -1,0 +1,11 @@
+.hero-card {
+
+}
+
+.hero-card .title {
+font-size: 18px;
+}
+
+.hero-card .title span {
+    font-size:14px;
+}

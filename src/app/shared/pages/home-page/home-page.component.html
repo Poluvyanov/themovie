@@ -1,11 +1,28 @@
 <div fxLayout="row">
-  <div fxFlex="10" fxFlex.gt-sm="20"></div>
-  <div fxFlex="90" fxFlex.gt-sm="80">
-    <h1 class="header__title">Heroes most liked</h1>
-    <ng-container *ngFor="let movie of movies">
-      <app-movie-card [movie]="movie"></app-movie-card>
-    </ng-container>
+    <div fxFlex="10" fxFlex.gt-sm="20"></div>
+    <div fxFlex="90" fxFlex.gt-sm="80">
+        <h1 class="header__title">Heroes most liked</h1>
 
-  </div>
-  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+        <div class="filter">
+            <h1>Фильтр</h1>
+
+            <label *ngFor="let t of types">
+                <input
+                        type="checkbox"
+                        [value]="t.type"
+                        (change) ="handleAdult($event.target)"
+
+                >
+                <span>{{t.label}}</span>
+            </label>
+        </div>
+
+        <br><br>
+        <hr>
+        <ng-container *ngFor="let movie of moviesObservable$ | async">
+            <app-movie-card [movie]="movie"></app-movie-card>
+        </ng-container>
+
+    </div>
+    <div fxFlex="10" fxFlex.gt-sm="20"></div>
 </div>

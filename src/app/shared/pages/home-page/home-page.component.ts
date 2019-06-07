@@ -1,23 +1,34 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {MovieService} from '../../../modules/shared/movie.service';
+import {map} from 'rxjs/operators';
+import {Imovies} from '../../../modules/shared/interfaces/imovies';
+import {ImoviesAll} from '../../../modules/shared/interfaces/imoviesAll';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
 
-  movies: any;
+    private moviesObservable$: Observable<ImoviesAll[]>;
 
-  constructor(private movieService: MovieService) {
-  }
+    types = [
+        {type: true, label: 'Adult'},
+        {type: false, label: 'Not adult'},
+    ];
 
-  ngOnInit() {
-    this.movieService.getMovies().subscribe(data => {
-      this.movies = data.results;
-    });
-  }
+    constructor(private movieService: MovieService) {
+    }
+
+    ngOnInit() {
+        this.moviesObservable$ = this.movieService.getMovies().pipe(map(res => res.results));
+
+    }
+
+    handleAdult(target) {
+        console.log('target', target.value);
+    }
 
 }
